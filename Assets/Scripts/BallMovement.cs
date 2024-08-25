@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
@@ -11,7 +12,7 @@ public class BallMovement : MonoBehaviour
 
     private void Awake()
     {
-        Audio = GameObject.FindGameObjectsWithTag("AudioManager").
+        Audio = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<Audio>();
     }
 
 
@@ -51,14 +52,19 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("RightBorder"))
         {
-
+            Audio.PlaySFX(Audio.ScoreMusic);
             PlayerOneScore.instance.IncrementScore("Player1Score");
             LaunchBall();
         }
-        if (collision.gameObject.CompareTag("LeftBorder"))
+        else if (collision.gameObject.CompareTag("LeftBorder"))
         {
+            Audio.PlaySFX(Audio.ScoreMusic);
             PlayerOneScore.instance.IncrementScore("Player2Score");
             LaunchBall();
+        }
+        else
+        {
+            Audio.PlaySFX(Audio.CollisionMusic);
         }
 
         rb.velocity = rb.velocity.normalized * ballSpeed;
