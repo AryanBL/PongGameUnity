@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
     [SerializeField] private float ballSpeed = 80f;
+    private Audio Audio;
     private Rigidbody2D rb;
+
+
+    private void Awake()
+    {
+        Audio = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<Audio>();
+    }
+
+
     private bool initialLaunch;
     private bool right;
     private bool left;
@@ -54,17 +64,23 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("RightBorder"))
         {
+            Audio.PlaySFX(Audio.ScoreMusic);
             right = true;
             left = false;
             PlayerOneScore.instance.IncrementScore("Player1Score");
             LaunchBall();
         }
-        if (collision.gameObject.CompareTag("LeftBorder"))
+        else if (collision.gameObject.CompareTag("LeftBorder"))
         {
+            Audio.PlaySFX(Audio.ScoreMusic);
             left = true;
             right = false;
             PlayerOneScore.instance.IncrementScore("Player2Score");
             LaunchBall();
+        }
+        else
+        {
+            Audio.PlaySFX(Audio.CollisionMusic);
         }
 
         rb.velocity = rb.velocity.normalized * ballSpeed;
