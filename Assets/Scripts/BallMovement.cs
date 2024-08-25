@@ -5,8 +5,16 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     [SerializeField] private float ballSpeed = 80f;
+    private Audio Audio;
     private Rigidbody2D rb;
-    
+
+
+    private void Awake()
+    {
+        Audio = GameObject.FindGameObjectsWithTag("AudioManager").
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +51,7 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("RightBorder"))
         {
+
             PlayerOneScore.instance.IncrementScore("Player1Score");
             LaunchBall();
         }
