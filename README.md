@@ -8,7 +8,7 @@ https://drive.google.com/file/d/13ANuM74d7HL2xzLGqx1UannBXSEXDWyW/view?usp=shari
 
 Download the installer from the google drive link above.
 
-Controlers:
+Controllers:
 
           Right paddle : UpArrow & DownArrow
           Left paddle  : W & S
