@@ -1,4 +1,4 @@
-Here you can download the installer for the game.
+Here, you can download the installer for the game.
 
 
 
