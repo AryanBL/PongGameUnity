@@ -4,7 +4,7 @@ Here, you can download the installer for the game.
 
 System : Windows 7 or higher - 64 bit
 
-https://drive.google.com/drive/folders/1GR6Eib67Y5XE06xzqc9uoh1nK4dn2exP
+https://drive.google.com/file/d/1knAx4B-LeuI6W4q9_Hg0u-cw1G6uo5vk/view?usp=drive_link
 
 Download the installer from the google drive link above.
 
